@@ -5,11 +5,23 @@ import Sidebar from "./components/Sidebar";
 import Main from "./components/Main";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [notes, setNotes] = useState([]);
+
+  const onAddNote = () => {
+    const newNote = {
+      id: 1,
+      title: "新しいノート",
+      content: "新しいノートの内容",
+      modDate: Date.now(),
+    };
+    setNotes([...notes, newNote]);
+    console.log(notes);
+    console.log("新しくノートが作成されました");
+  };
 
   return (
     <div className="App">
-      <Sidebar />
+      <Sidebar onAddNote={onAddNote} />
       <Main />
     </div>
   );

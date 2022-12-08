@@ -3,13 +3,14 @@ import reactLogo from "./assets/react.svg";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import Main from "./components/Main";
+import uuid from "react-uuid";
 
 function App() {
   const [notes, setNotes] = useState([]);
 
   const onAddNote = () => {
     const newNote = {
-      id: 1,
+      id: uuid(),
       title: "新しいノート",
       content: "新しいノートの内容",
       modDate: Date.now(),
